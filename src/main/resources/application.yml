@@ -4,13 +4,14 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:9000
+
   cloud:
     gateway:
       routes:
-        - id: spring-6-rest-mvc
-          uri: http://localhost:8081
-          predicates:
-            - Path=/api/v1/*
+#        - id: spring-6-rest-mvc
+#          uri: http://localhost:8081
+#          predicates:
+#            - Path=/api/v1/*
         - id: spring-6-reactive
           uri: http://localhost:8082
           predicates:
@@ -19,6 +20,11 @@ spring:
           uri: http://localhost:8083
           predicates:
             - Path=/api/v3/*
+        - id: management-app
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/v1/*
+
 
 
 # *** THE CODE BELOW PROVIDES TROUBLESHOOTING ***
